@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#F8F8F6"/><text x="100" y="112" font-size="60" text-anchor="middle" font-family="serif" fill="#23272B">LS</text></svg>
+</template>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#F8F8F6;color:#23272B;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  ::selection{background:#23272B;color:#F8F8F6;}
+  input,textarea,button{font-family:inherit;}
+  input:focus,textarea:focus{outline:none;border-color:#23272B;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;animation-delay:0ms !important;transition-duration:0.001ms !important;}
+  }
+  @keyframes pulseDot{
+    0%,100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.7); opacity:0.55; }
+  }
+</style>
+</helmet>
+<div id="top" style="overflow-x:hidden;">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(248,248,246,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #B7BCBE;">
+    <div style="max-width:1440px;margin:0 auto;padding:10px clamp(14px,2vw,22px);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;opacity:{{ loadAnim.header.opacity }};transform:{{ loadAnim.header.transform }};transition:{{ loadAnim.header.transition }};">
+      <a href="#top" style="display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0;">
+        <img src="assets/local-sweat-icon.png" alt="Local Sweat Sauna House" style="height:44px;width:auto;display:block;">
+        <span style="display:flex;flex-direction:column;line-height:1;min-width:0;">
+          <span style="font-weight:700;font-size:18px;letter-spacing:0.05em;color:#23272B;white-space:nowrap;">LOCAL SWEAT</span>
+          <span style="font-weight:500;font-size:11px;letter-spacing:0.24em;color:#667382;margin-top:5px;white-space:nowrap;">SAUNA HOUSE</span>
+        </span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <a href="#survey" onClick="{{ onSurveyClick }}" style="display:inline-flex;align-items:center;padding:8px 14px;background:#23272B;color:#F8F8F6;border:1px solid #23272B;border-radius:2px;font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.01em;white-space:nowrap;">Survey</a>
+        </sc-if>
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <a href="#about" style="text-decoration:none;color:#3F454B;font-size:14px;font-weight:500;padding-bottom:5px;border-bottom:{{ navUnderline.about }};transition:color .2s ease, border-color .3s ease;" style-hover="color:#23272B;">What it is</a>
+          <a href="#expect" style="text-decoration:none;color:#3F454B;font-size:14px;font-weight:500;padding-bottom:5px;border-bottom:{{ navUnderline.expect }};transition:color .2s ease, border-color .3s ease;" style-hover="color:#23272B;">What to expect</a>
+          <a href="#faq" style="text-decoration:none;color:#3F454B;font-size:14px;font-weight:500;padding-bottom:5px;border-bottom:{{ navUnderline.faq }};transition:color .2s ease, border-color .3s ease;" style-hover="color:#23272B;">FAQ</a>
+          <a href="#survey" onClick="{{ onSurveyClick }}" style="display:inline-flex;align-items:center;padding:8px 16px;background:#23272B;color:#F8F8F6;border:1px solid #23272B;border-radius:2px;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:0.01em;transition:background .2s ease, transform .18s ease, box-shadow .18s ease;" style-hover="background:#15181A;transform:translateY(-2px);box-shadow:0 8px 16px rgba(35,39,43,0.18);">Take the 2-minute survey</a>
+        </sc-if>
+      </nav>
+    </div>
+  </header>
+
+  <a href="#survey" onClick="{{ onSurveyClick }}" style="position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:40;display:inline-flex;align-items:center;gap:7px;padding:8px 16px;background:rgba(35,39,43,0.92);color:#F8F8F6;border:1px solid rgba(35,39,43,0.92);border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.02em;text-decoration:none;box-shadow:0 6px 16px rgba(35,39,43,0.18);opacity:{{ floatingCtaStyle.opacity }};transform:{{ floatingCtaStyle.transform }};pointer-events:{{ floatingCtaStyle.pointerEvents }};transition:{{ floatingCtaStyle.transition }}, border-color .2s ease, box-shadow .2s ease;" style-hover="border-color:#667382;box-shadow:0 6px 16px rgba(35,39,43,0.1);">
+    <span style="width: 4px; height: 4px; border-radius: 2px; background: #F8F8F6; display: block; flex: 0 0 auto;"></span>Help shape Local Sweat — take the 2-minute survey</a>
+
+  
+
+  <!-- Cinematic hero — the cover photograph, standing on its own -->
+  <section id="hero" style="margin:0;padding:0;">
+    <div style="position:relative;width:100%;height:clamp(460px,84vh,880px);overflow:hidden;background:#23272B;opacity:{{ loadAnim.hero.opacity }};transform:{{ loadAnim.hero.transform }};transition:{{ loadAnim.hero.transition }};">
+      <img ref="{{ heroImgRef }}" src="assets/hero-lounge.png" alt="Inside Local Sweat — cedar sauna, steam, and the cooling lounge" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block;transform:scale(1.06);will-change:transform;">
+      <span style="position:absolute;right:16px;bottom:16px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.3px;letter-spacing:0.05em;text-transform:uppercase;color:#F8F8F6;background:rgba(35,39,43,0.55);padding:5.6px 9.4px;">CONCEPT RENDERING</span>
+    </div>
+  </section>
+
+  <section id="opening" style="margin:0;padding:0;border-top:1px solid #C3C7C6;">
+    <div style="width:100%; text-align: center; padding: clamp(32px,4.5vw,56px) clamp(20px,4vw,36px);">
+      <div style="max-width:820px;margin:0 auto;">
+        <h1 style="margin:0;text-align:center;">
+          <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:500;font-size:clamp(11px,1.3vw,13px);letter-spacing:0.24em;text-transform:uppercase;color:#667382;margin-bottom:clamp(20px,2.6vw,30px);opacity:{{ loadAnim.headlineKicker.opacity }};transform:{{ loadAnim.headlineKicker.transform }};transition:{{ loadAnim.headlineKicker.transition }};">A simple place to</span>
+          <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(36px,7.2vw,62px);line-height:0.98;letter-spacing:-0.02em;color:#23272B;opacity:{{ loadAnim.headlineLine1.opacity }};transform:{{ loadAnim.headlineLine1.transform }};transition:{{ loadAnim.headlineLine1.transition }};">sweat,</span>
+          <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(36px,7.2vw,62px);line-height:0.98;letter-spacing:-0.02em;color:#23272B;opacity:{{ loadAnim.headlineLine2.opacity }};transform:{{ loadAnim.headlineLine2.transform }};transition:{{ loadAnim.headlineLine2.transition }};">slow down,</span>
+          <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(36px,7.2vw,62px);line-height:0.98;letter-spacing:-0.02em;color:#23272B;opacity:{{ loadAnim.headlineLine3.opacity }};transform:{{ loadAnim.headlineLine3.transform }};transition:{{ loadAnim.headlineLine3.transition }};">and recover.</span>
+        </h1>
+        <div style="width:44px;height:2px;background:#23272B;margin:clamp(18px,2.2vw,24px) auto 0;opacity:{{ loadAnim.divider.opacity }};transform:{{ loadAnim.divider.transform }};transition:{{ loadAnim.divider.transition }};"></div>
+        <span style="display:inline-flex;align-items:center;gap:9px;margin-top:clamp(30px,3.6vw,40px);padding:6px 14px;border:2px solid #5B6B7A;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#667382;opacity:{{ loadAnim.badge.opacity }};transform:{{ loadAnim.badge.transform }};transition:{{ loadAnim.badge.transition }};">
+          <span style="width: 6px; height: 6px; border-radius: 2px; background: rgb(102, 115, 130); display: block; animation: pulseDot 2.2s ease-in-out infinite;"></span>COMING SOON</span>
+        <p style="margin:clamp(22px,2.6vw,28px) auto 0;max-width:540px;font-size:clamp(17px,1.8vw,20px);line-height:1.55;color:#3F454B;opacity:{{ loadAnim.paragraph.opacity }};transform:{{ loadAnim.paragraph.transform }};transition:{{ loadAnim.paragraph.transition }};">We're exploring a neighborhood sauna house for Manhattan, Kansas. We'd love to build it with our community. Your feedback will help shape what Local Sweat becomes.</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(18px,3vw,28px);margin-top:clamp(34px,4.5vw,44px);opacity:{{ loadAnim.buttons.opacity }};transform:{{ loadAnim.buttons.transform }};transition:{{ loadAnim.buttons.transition }};">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:11px;">
+            <a href="#survey" onClick="{{ onSurveyClick }}" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 34px;background:#23272B;color:#F8F8F6;border:1px solid #23272B;border-radius:8px;font-size:18px;font-weight:600;text-decoration:none;letter-spacing:0.01em;transition:background .2s ease, transform .18s ease, box-shadow .18s ease;" style-hover="background:#15181A;transform:translateY(-2px);box-shadow:0 10px 22px rgba(35,39,43,0.2);">Take the 2-minute survey <span style="font-size: 20px; line-height: 1;">→</span></a>
+            <span style="font-size:13px;color:#667382;letter-spacing:0.02em;">No essay questions</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:11px;">
+            <a href="#interest" style="display:inline-flex;align-items:center;justify-content:center;padding:16px 32px;background:transparent;color:#23272B;border:1px solid #23272B;border-radius:8px;font-size:18px;font-weight:600;text-decoration:none;letter-spacing:0.01em;transition:background .2s ease, transform .18s ease, box-shadow .18s ease;" style-hover="background:rgba(33,37,40,0.05);transform:translateY(-2px);box-shadow:0 8px 18px rgba(35,39,43,0.1);">Join the interest list</a>
+            <span style="font-size:13px;color:#667382;letter-spacing:0.02em;">No commitment. Stay up-to-date&nbsp;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="margin:0;padding:clamp(36px,5.5vw,72px) clamp(20px,4vw,36px);border-top:1px solid #C3C7C6;background:#F1F0EC;">
+    <div style="text-align:center;margin-bottom:clamp(26px,4.5vw,48px);opacity:{{ loadAnim.aboutHeader.opacity }};transform:{{ loadAnim.aboutHeader.transform }};transition:{{ loadAnim.aboutHeader.transition }};">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:clamp(20px,2.4vw,28px);">
+        <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">What is Local Sweat</span>
+        <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+      </div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(21px,3.4vw,50px);line-height:1.08;letter-spacing:-0.02em;color:#23272B;margin:0 auto;max-width:none;white-space:nowrap;">A simple idea</h2>
+    </div>
+
+    <div style="max-width:640px;margin:0 auto;text-align:center;opacity:{{ loadAnim.aboutBody.opacity }};transform:{{ loadAnim.aboutBody.transform }};transition:{{ loadAnim.aboutBody.transition }};">
+      <p style="margin:0;font-size:clamp(18px,2vw,22px);line-height:1.72;color:#3F454B;">Local Sweat would be a small sauna house in Manhattan built around one traditional idea — sitting in a warm room, letting the heat do its work, and cooling off afterward. You walk in, warm up, sweat, and return home feeling better.</p>
+      <p style="margin:22px 0 0;font-size:clamp(18px,2vw,22px);line-height:1.72;color:#3F454B;">Not complicated. Instead, <strong style="font-family:'Montserrat',sans-serif;font-weight:600;color:#23272B;">simplicity mastered</strong>. Imagine an environment where you might stop by after a shift, a workout, or a cold walk across campus — on your own or with a few people.</p>
+    </div>
+  </section>
+
+  <section id="whyhere" style="border-top:1px solid #C3C7C6;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(36px,5.5vw,72px) clamp(20px,4vw,36px);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,5vw,64px);align-items:start;margin-bottom:clamp(56px,6.5vw,84px);">
+      <div style="text-align:left;height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+        <div data-reveal-key="whyhereHeader" style="opacity:{{ revealStyle.whyhereHeader.opacity }};transform:{{ revealStyle.whyhereHeader.transform }};transition:{{ revealStyle.whyhereHeader.transition }};">
+          <div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:clamp(20px,2.4vw,28px);">
+            <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">Why here</span>
+            <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+          </div>
+          <h2 style="font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: clamp(36px,5.6vw,68px); line-height: 1.55; letter-spacing: -0.02em; color: #23272B; margin: 0; max-width: 12ch;">Why Manhattan, <span style="font-family:'Montserrat',sans-serif;font-weight:600;color:#23272B;">and why now?</span></h2>
+        </div>
+
+      </div>
+      <div data-reveal-key="whyhereImage" style="opacity:{{ revealStyle.whyhereImage.opacity }};transform:{{ revealStyle.whyhereImage.transform }};transition:{{ revealStyle.whyhereImage.transition }};">
+        <div style="position:relative;overflow:hidden;">
+          <img src="assets/storefront-sign.png" alt="A Local Sweat sign hanging outside a storefront in Manhattan, Kansas" style="width:100%;height:auto;display:block;border:2px solid #23272B;transition:filter .4s ease;" style-hover="filter:brightness(1.04);">
+          <span style="position:absolute;right:16px;bottom:16px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.3px;letter-spacing:0.05em;text-transform:uppercase;color:#F8F8F6;background:rgba(35,39,43,0.55);padding:5.6px 9.4px;">CONCEPT RENDERING</span>
+        </div>
+        <p style="margin:16px 0 0;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#667382;text-align:center;">A first look at the sign — a preview of what it could feel like to walk up.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(20px,2.4vw,32px);text-align:center;">
+      <div data-reveal-key="whyhereCard1" style="padding:clamp(24px,2.6vw,32px) clamp(20px,2.2vw,26px);background:#FFFFFF;border:1px solid #D7DBDD;opacity:{{ revealStyle.whyhereCard1.opacity }};transform:{{ revealStyle.whyhereCard1.transform }};transition:{{ revealStyle.whyhereCard1.transition }};">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#667382;">Recovery</div>
+        <div style="margin:18px auto 0;width:32px;height:3px;background:#23272B;"></div>
+        <p style="margin:20px 0 0;font-size:clamp(16px,1.8vw,18px);line-height:1.68;color:#3F454B;">Between physical jobs, workouts, jiu-jitsu, and long days on your feet, bodies around here work hard. Heat and rest are one of the oldest, simplest ways to help them bounce back.</p>
+      </div><div data-reveal-key="whyhereCard2" style="padding:clamp(24px,2.6vw,32px) clamp(20px,2.2vw,26px);background:#FFFFFF;border:1px solid #D7DBDD;opacity:{{ revealStyle.whyhereCard2.opacity }};transform:{{ revealStyle.whyhereCard2.transform }};transition:{{ revealStyle.whyhereCard2.transition }};">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#667382;">Community</div>
+        <div style="margin:18px auto 0;width:32px;height:3px;background:#23272B;"></div>
+        <p style="margin:20px 0 0;font-size:clamp(16px,1.8vw,18px);line-height:1.68;color:#3F454B;">Winters here are long, and it's easy to go weeks without seeing anyone outside of work. A warm, public room gives people an easy, low-pressure reason to be around each other again.</p>
+      </div>
+      
+      <div data-reveal-key="whyhereCard3" style="padding:clamp(24px,2.6vw,32px) clamp(20px,2.2vw,26px);background:#FFFFFF;border:1px solid #D7DBDD;opacity:{{ revealStyle.whyhereCard3.opacity }};transform:{{ revealStyle.whyhereCard3.transform }};transition:{{ revealStyle.whyhereCard3.transition }};">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#667382;">Health</div>
+        <div style="margin:18px auto 0;width:32px;height:3px;background:#23272B;"></div>
+        <p style="margin:20px 0 0;font-size:clamp(16px,1.8vw,18px);line-height:1.68;color:#3F454B;">Regular sauna use is widely associated with relaxation, better circulation, and lower stress — the kind of steady, ordinary habits that quietly add up over a lifetime.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="who" style="border-top:1px solid #C3C7C6;">
+    
+  <div style="max-width: 1180px; margin: 0 auto; padding: clamp(72px,8vw,108px) clamp(20px,5vw,48px); position: relative">
+      <div data-reveal-key="whoHeader" style="text-align:center;margin-bottom:clamp(32px,5.5vw,64px);opacity:{{ revealStyle.whoHeader.opacity }};transform:{{ revealStyle.whoHeader.transform }};transition:{{ revealStyle.whoHeader.transition }};">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:clamp(20px,2.4vw,28px);">
+          <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">Who it's for</span>
+          <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+        </div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,56px);line-height:1.08;letter-spacing:-0.02em;color:#23272B;margin:0 auto;max-width:28ch;">If you live here, it's for you</h2>
+      </div>
+      
+      
+      <div data-reveal-key="whoChips" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: clamp(40px,5vw,56px) auto 0; max-width: 1000px; opacity: {{ revealStyle.whoChips.opacity }}; transform: {{ revealStyle.whoChips.transform }}; transition: {{ revealStyle.whoChips.transition }};">
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Teachers</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Nurses</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Construction crews</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Firefighters</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Office workers</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">K-State students</span><span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Faculty</span><span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Military</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Retirees</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Runners</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Jiu-jitsu athletes</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">Pilates regulars</span>
+        <span style="padding:10px 18px;border:2px solid #5B6B7A;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#3F454B;background:#F8F8F6;">First-timers</span>
+        <span style="padding:13px 24px;border:2px solid #23272B;border-radius:2px;font-size:clamp(15px,1.7vw,18px);color:#F8F8F6;background:#23272B;">You</span>
+      </div><p data-reveal-key="whoBody" style="margin: clamp(40px,5vw,56px) auto 0; max-width: 60ch; font-size: clamp(18px,2vw,21px); line-height: 1.7; color: #3F454B; text-align: center;opacity:{{ revealStyle.whoBody.opacity }};transform:{{ revealStyle.whoBody.transform }};transition:{{ revealStyle.whoBody.transition }};">Everyone's welcome, and no one's expected to be an expert. <br>Come after a shift, after a workout, or after a cold walk across campus — on your own or with friends.</p>
+    </div></section>
+
+  
+
+  
+
+<section id="inside" style="border-top:1px solid #C3C7C6;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(36px,5.5vw,72px) clamp(20px,4vw,36px);">
+      <div data-reveal-key="insideHeader" style="text-align:center;margin-bottom:clamp(32px,5.5vw,64px);opacity:{{ revealStyle.insideHeader.opacity }};transform:{{ revealStyle.insideHeader.transform }};transition:{{ revealStyle.insideHeader.transition }};">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:clamp(20px,2.4vw,28px);">
+          <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">What's inside</span>
+          <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+        </div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,56px);line-height:1.08;letter-spacing:-0.02em;color:#23272B;margin:0 auto;max-width:26ch;">Five spaces under one roof</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:clamp(16px,2vw,22px);max-width:720px;margin:0 auto;">
+        <div data-reveal-key="insideCard1" style="padding:clamp(10px,1.1vw,14px) clamp(18px,2vw,24px);background:#FFFFFF;border:1.5px solid #23272B;box-shadow:0 2px 6px rgba(35,39,43,0.08);text-align:center;opacity:{{ revealStyle.insideCard1.opacity }};transform:{{ revealStyle.insideCard1.transform }};transition:{{ revealStyle.insideCard1.transition }};">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#667382;">Community</div>
+          <div style="margin:16px 0 0;width:28px;height:2px;background:#23272B;display:inline-block;"></div>
+          <div style="margin-top:16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,32px);color:#23272B;line-height:1.12;letter-spacing:-0.02em;">10-person sauna</div>
+          <p style="margin:14px 0 0;font-size:clamp(15px,1.6vw,17px);line-height:1.62;color:#3F454B;">Drop-in. No reservation needed.</p>
+        </div>
+        <div data-reveal-key="insideCard2" style="padding:clamp(10px,1.1vw,14px) clamp(18px,2vw,24px);background:#FFFFFF;border:1.5px solid #23272B;box-shadow:0 2px 6px rgba(35,39,43,0.08);text-align:center;opacity:{{ revealStyle.insideCard2.opacity }};transform:{{ revealStyle.insideCard2.transform }};transition:{{ revealStyle.insideCard2.transition }};">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#667382;">Private</div>
+          <div style="margin:16px 0 0;width:28px;height:2px;background:#23272B;display:inline-block;"></div>
+          <div style="margin-top:16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,32px);color:#23272B;line-height:1.12;letter-spacing:-0.02em;">Three private saunas</div>
+          <p style="margin:14px 0 0;font-size:clamp(15px,1.6vw,17px);line-height:1.62;color:#3F454B;">Smaller, quieter rooms you can book in advance for a private sauna.</p>
+        </div>
+        <div data-reveal-key="insideCard3" style="padding:clamp(10px,1.1vw,14px) clamp(18px,2vw,24px);background:#FFFFFF;border:1.5px solid #23272B;box-shadow:0 2px 6px rgba(35,39,43,0.08);text-align:center;opacity:{{ revealStyle.insideCard3.opacity }};transform:{{ revealStyle.insideCard3.transform }};transition:{{ revealStyle.insideCard3.transition }};">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#667382;">Hydration</div>
+          <div style="margin:16px 0 0;width:28px;height:2px;background:#23272B;display:inline-block;"></div>
+          <div style="margin-top:16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,32px);color:#23272B;line-height:1.12;letter-spacing:-0.02em;">Cooling lounge</div>
+          <p style="margin:14px 0 0;font-size:clamp(15px,1.6vw,17px);line-height:1.62;color:#3F454B;">Cool off between rounds with filtered reverse osmosis or hydrogen water.</p>
+        </div>
+        <div data-reveal-key="insideCard4" style="padding:clamp(10px,1.1vw,14px) clamp(18px,2vw,24px);background:#FFFFFF;border:1.5px solid #23272B;box-shadow:0 2px 6px rgba(35,39,43,0.08);text-align:center;opacity:{{ revealStyle.insideCard4.opacity }};transform:{{ revealStyle.insideCard4.transform }};transition:{{ revealStyle.insideCard4.transition }};">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#667382;">Recovery</div>
+          <div style="margin:16px 0 0;width:28px;height:2px;background:#23272B;display:inline-block;"></div>
+          <div style="margin-top:16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,32px);color:#23272B;line-height:1.12;letter-spacing:-0.02em;">Stretch space</div>
+          <p style="margin:14px 0 0;font-size:clamp(15px,1.6vw,17px);line-height:1.62;color:#3F454B;">A calm space to stretch and settle afterward.</p>
+        </div>
+        <div data-reveal-key="insideCard5" style="padding:clamp(10px,1.1vw,14px) clamp(18px,2vw,24px);background:#FFFFFF;border:1.5px solid #23272B;box-shadow:0 2px 6px rgba(35,39,43,0.08);text-align:center;opacity:{{ revealStyle.insideCard5.opacity }};transform:{{ revealStyle.insideCard5.transform }};transition:{{ revealStyle.insideCard5.transition }};">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#667382;">Everyday</div>
+          <div style="margin:16px 0 0;width:28px;height:2px;background:#23272B;display:inline-block;"></div>
+          <div style="margin-top:16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,32px);color:#23272B;line-height:1.12;letter-spacing:-0.02em;">Lockers &amp; towels</div>
+          <p style="margin:14px 0 0;font-size:clamp(15px,1.6vw,17px);line-height:1.62;color:#3F454B;">Arrive empty-handed; we've got the rest.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:clamp(40px,5vw,56px);">
+        <button onClick="{{ onToggleFloorPlan }}" style="display:inline-flex;align-items:center;gap:10px;padding:14px 26px;background:#23272B;color:#F8F8F6;border:2px solid #23272B;border-radius:2px;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s ease, box-shadow .2s ease;" style-hover="background:#15181A;box-shadow:0 6px 16px rgba(35,39,43,0.22);">
+          <span>{{ floorPlanLabel }}</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:18px;color:#F8F8F6;line-height:1;transform:{{ floorPlanCaretTransform }};transition:transform .35s ease;">▾</span>
+        </button>
+        <div style="{{ floorPlanBodyStyle }}">
+          <div style="max-width:520px;margin:clamp(32px,4vw,44px) auto 0;">
+            <div style="position:relative;">
+              <img src="assets/floor-plan-v2.png" alt="Local Sweat Sauna House — floor plan" style="width:100%;height:auto;display:block;border:2px solid #23272B;transition:filter .4s ease;" style-hover="filter:brightness(1.04);">
+              <span style="position:absolute;right:16px;bottom:16px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.3px;letter-spacing:0.05em;text-transform:uppercase;color:#F8F8F6;background:rgba(35,39,43,0.55);padding:5.6px 9.4px;">CONCEPT RENDERING</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><section id="expect" style="border-top:1px solid #C3C7C6;">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(36px,5.5vw,72px) clamp(20px,4vw,36px);">
+    <div data-reveal-key="expectHeader" style="text-align:center;margin-bottom:clamp(32px,5.5vw,64px);opacity:{{ revealStyle.expectHeader.opacity }};transform:{{ revealStyle.expectHeader.transform }};transition:{{ revealStyle.expectHeader.transition }};">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:clamp(20px,2.4vw,28px);">
+        <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">What to expect</span>
+        <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+      </div>
+      <h2 style="font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: clamp(26px,4vw,54px); line-height: 1.16; letter-spacing: -0.02em; color: #23272B; margin: 0 auto; max-width: 16ch;">Stay twenty minutes, or stay an hour</h2>
+    </div>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;flex-wrap:wrap;">
+      <div data-reveal-key="expectCard1" style="flex:1 1 190px;padding:clamp(6px,0.8vw,10px) clamp(14px,1.6vw,22px);text-align:center;opacity:{{ revealStyle.expectCard1.opacity }};transform:{{ revealStyle.expectCard1.transform }};transition:{{ revealStyle.expectCard1.transition }};">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(40px,5vw,58px);color:#667382;line-height:0.9;">01</div>
+        <div style="margin-top:20px;font-size:clamp(19px,2.1vw,23px);font-weight:600;color:#23272B;">Arrive</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.6vw,16px);line-height:1.6;color:#3F454B;">Come as you are. Grab a locker and a towel — no check-in ritual, no membership card.</p>
+      </div>
+      <div data-reveal-key="expectCard2" style="flex:1 1 190px;padding:clamp(6px,0.8vw,10px) clamp(14px,1.6vw,22px);border-left:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.expectCard2.opacity }};transform:{{ revealStyle.expectCard2.transform }};transition:{{ revealStyle.expectCard2.transition }};">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(40px,5vw,58px);color:#667382;line-height:0.9;">02</div>
+        <div style="margin-top:20px;font-size:clamp(19px,2.1vw,23px);font-weight:600;color:#23272B;">Warm up</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.6vw,16px);line-height:1.6;color:#3F454B;">Settle into the community room or a private sauna and let the heat do its thing.</p>
+      </div>
+      <div data-reveal-key="expectCard3" style="flex:1 1 190px;padding:clamp(6px,0.8vw,10px) clamp(14px,1.6vw,22px);border-left:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.expectCard3.opacity }};transform:{{ revealStyle.expectCard3.transform }};transition:{{ revealStyle.expectCard3.transition }};">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(40px,5vw,58px);color:#667382;line-height:0.9;">03</div>
+        <div style="margin-top:20px;font-size:clamp(19px,2.1vw,23px);font-weight:600;color:#23272B;">Cool down</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.6vw,16px);line-height:1.6;color:#3F454B;">Step out to the lounge, rinse off, and drink some water. Catch your breath.</p>
+      </div>
+      <div data-reveal-key="expectCard4" style="flex:1 1 190px;padding:clamp(6px,0.8vw,10px) clamp(14px,1.6vw,22px);border-left:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.expectCard4.opacity }};transform:{{ revealStyle.expectCard4.transform }};transition:{{ revealStyle.expectCard4.transition }};">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(40px,5vw,58px);color:#667382;line-height:0.9;">04</div>
+        <div style="margin-top:20px;font-size:clamp(19px,2.1vw,23px);font-weight:600;color:#23272B;">Go again</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.6vw,16px);line-height:1.6;color:#3F454B;">Back in for another round, or stretch it out in the stretch space. Up to you.</p>
+      </div>
+      <div data-reveal-key="expectCard5" style="flex:1 1 190px;padding:clamp(6px,0.8vw,10px) clamp(14px,1.6vw,22px);border-left:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.expectCard5.opacity }};transform:{{ revealStyle.expectCard5.transform }};transition:{{ revealStyle.expectCard5.transition }};">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(40px,5vw,58px);color:#667382;line-height:0.9;">05</div>
+        <div style="margin-top:20px;font-size:clamp(19px,2.1vw,23px);font-weight:600;color:#23272B;">Head home</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.6vw,16px);line-height:1.6;color:#3F454B;">Leave loose, warm, and a little lighter than you came in.</p>
+      </div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:420px;margin:0 auto;">
+      <div data-reveal-key="expectCard1" style="display:flex;gap:16px;opacity:{{ revealStyle.expectCard1.opacity }};transform:{{ revealStyle.expectCard1.transform }};transition:{{ revealStyle.expectCard1.transition }};">
+        <div style="flex:none;display:flex;flex-direction:column;align-items:center;width:12px;">
+          <span style="width:12px;height:12px;border-radius:50%;background:#23272B;flex:none;"></span>
+          <span style="width:2px;flex:1;background:#D7DBDD;margin-top:6px;"></span>
+        </div>
+        <div style="padding-bottom:28px;">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Arrive</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">Come as you are. Grab a locker and a towel — no check-in ritual, no membership card.</p>
+        </div>
+      </div>
+      <div data-reveal-key="expectCard2" style="display:flex;gap:16px;opacity:{{ revealStyle.expectCard2.opacity }};transform:{{ revealStyle.expectCard2.transform }};transition:{{ revealStyle.expectCard2.transition }};">
+        <div style="flex:none;display:flex;flex-direction:column;align-items:center;width:12px;">
+          <span style="width:12px;height:12px;border-radius:50%;background:#23272B;flex:none;"></span>
+          <span style="width:2px;flex:1;background:#D7DBDD;margin-top:6px;"></span>
+        </div>
+        <div style="padding-bottom:28px;">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Warm up</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">Settle into the community room or a private sauna and let the heat do its thing.</p>
+        </div>
+      </div>
+      <div data-reveal-key="expectCard3" style="display:flex;gap:16px;opacity:{{ revealStyle.expectCard3.opacity }};transform:{{ revealStyle.expectCard3.transform }};transition:{{ revealStyle.expectCard3.transition }};">
+        <div style="flex:none;display:flex;flex-direction:column;align-items:center;width:12px;">
+          <span style="width:12px;height:12px;border-radius:50%;background:#23272B;flex:none;"></span>
+          <span style="width:2px;flex:1;background:#D7DBDD;margin-top:6px;"></span>
+        </div>
+        <div style="padding-bottom:28px;">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Cool down</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">Step out to the lounge, rinse off, and drink some water. Catch your breath.</p>
+        </div>
+      </div>
+      <div data-reveal-key="expectCard4" style="display:flex;gap:16px;opacity:{{ revealStyle.expectCard4.opacity }};transform:{{ revealStyle.expectCard4.transform }};transition:{{ revealStyle.expectCard4.transition }};">
+        <div style="flex:none;display:flex;flex-direction:column;align-items:center;width:12px;">
+          <span style="width:12px;height:12px;border-radius:50%;background:#23272B;flex:none;"></span>
+          <span style="width:2px;flex:1;background:#D7DBDD;margin-top:6px;"></span>
+        </div>
+        <div style="padding-bottom:28px;">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Go again</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">Back in for another round, or stretch it out in the stretch space. Up to you.</p>
+        </div>
+      </div>
+      <div data-reveal-key="expectCard5" style="display:flex;gap:16px;opacity:{{ revealStyle.expectCard5.opacity }};transform:{{ revealStyle.expectCard5.transform }};transition:{{ revealStyle.expectCard5.transition }};">
+        <div style="flex:none;display:flex;flex-direction:column;align-items:center;width:12px;">
+          <span style="width:12px;height:12px;border-radius:50%;background:#23272B;flex:none;"></span>
+        </div>
+        <div>
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Head home</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">Leave loose, warm, and a little lighter than you came in.</p>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+    <p data-reveal-key="expectClosing" style="margin:clamp(40px,5vw,56px) auto 0;max-width:62ch;font-size:clamp(18px,2vw,21px);line-height:1.7;color:#3F454B;text-align:center;opacity:{{ revealStyle.expectClosing.opacity }};transform:{{ revealStyle.expectClosing.transform }};transition:{{ revealStyle.expectClosing.transition }};">There's no right way to do it and no clock to beat. Some people are in and out in twenty minutes. Others settle in for the better part of an hour. <br>Both are perfectly normal.</p>
+  </div>
+  </section>
+
+  
+
+  <section id="whysweat" style="border-top:1px solid #C3C7C6;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(36px,5.5vw,72px) clamp(20px,4vw,36px);">
+      
+
+      <div data-reveal-key="whysweatHeader" style="text-align:center;margin-bottom:clamp(20px,2.4vw,28px);opacity:{{ revealStyle.whysweatHeader.opacity }};transform:{{ revealStyle.whysweatHeader.transform }};transition:{{ revealStyle.whysweatHeader.transition }};">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:clamp(20px,2.4vw,28px);">
+          <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">Why sweat</span>
+          <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+        </div>
+        <h2 style="font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: clamp(26px,4.6vw,56px); line-height: 1.14; letter-spacing: -0.02em; color: #23272B; margin: 0 auto; max-width: 15ch;">Why people make sauna part of their routine</h2>
+        <p style="margin:clamp(22px,2.8vw,30px) auto 0;max-width:56ch;font-size:clamp(18px,2vw,21px);line-height:1.7;color:#3F454B;">None of this is new.<br><br>People have been gathering to sweat for a very long time, for reasons that are pretty ordinary and pretty human.</p>
+      </div>
+
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:clamp(16px,2vw,26px);margin-top:clamp(44px,5.5vw,68px);">
+        <div data-reveal-key="whysweatCard1" style="padding:clamp(20px,2.2vw,28px) clamp(20px,2.2vw,28px);background:#F8F8F6;border:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard1.opacity }};transform:{{ revealStyle.whysweatCard1.transform }};transition:{{ revealStyle.whysweatCard1.transition }};">
+          <div style="font-size:clamp(20px,2.2vw,24px);font-weight:600;color:#23272B;">Enjoy a healthy sweat</div>
+          <p style="margin:12px 0 0;font-size:clamp(16px,1.7vw,17px);line-height:1.62;color:#3F454B;">The plain, good feeling of warming all the way through and letting go of the day.</p>
+        </div>
+        <div data-reveal-key="whysweatCard2" style="padding:clamp(20px,2.2vw,28px) clamp(20px,2.2vw,28px);background:#F8F8F6;border:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard2.opacity }};transform:{{ revealStyle.whysweatCard2.transform }};transition:{{ revealStyle.whysweatCard2.transition }};">
+          <div style="font-size:clamp(20px,2.2vw,24px);font-weight:600;color:#23272B;">Recover after hard days</div>
+          <p style="margin:12px 0 0;font-size:clamp(16px,1.7vw,17px);line-height:1.62;color:#3F454B;">A simple way to unwind after a workout, a shift, or a long day on your feet.</p>
+        </div>
+        <div data-reveal-key="whysweatCard3" style="padding:clamp(20px,2.2vw,28px) clamp(20px,2.2vw,28px);background:#F8F8F6;border:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard3.opacity }};transform:{{ revealStyle.whysweatCard3.transform }};transition:{{ revealStyle.whysweatCard3.transition }};">
+          <div style="font-size:clamp(20px,2.2vw,24px);font-weight:600;color:#23272B;">Loosen tired muscles</div>
+          <p style="margin:12px 0 0;font-size:clamp(16px,1.7vw,17px);line-height:1.62;color:#3F454B;">Heat has a way of taking the edge off stiffness and helping you feel loose again.</p>
+        </div>
+        <div data-reveal-key="whysweatCard4" style="padding:clamp(20px,2.2vw,28px) clamp(20px,2.2vw,28px);background:#F8F8F6;border:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard4.opacity }};transform:{{ revealStyle.whysweatCard4.transform }};transition:{{ revealStyle.whysweatCard4.transition }};">
+          <div style="font-size:clamp(20px,2.2vw,24px);font-weight:600;color:#23272B;">Support everyday wellness</div>
+          <p style="margin:12px 0 0;font-size:clamp(16px,1.7vw,17px);line-height:1.62;color:#3F454B;">Regular sauna use is broadly linked with relaxation, circulation, and lower stress.</p>
+        </div>
+        <div data-reveal-key="whysweatCard5" style="padding:clamp(20px,2.2vw,28px) clamp(20px,2.2vw,28px);background:#F8F8F6;border:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard5.opacity }};transform:{{ revealStyle.whysweatCard5.transform }};transition:{{ revealStyle.whysweatCard5.transition }};">
+          <div style="font-size:clamp(20px,2.2vw,24px);font-weight:600;color:#23272B;">Put your phone down</div>
+          <p style="margin:12px 0 0;font-size:clamp(16px,1.7vw,17px);line-height:1.62;color:#3F454B;">There's not much to do in a hot room but sit, breathe, and be off your screen.</p>
+        </div>
+        <div data-reveal-key="whysweatCard6" style="padding:clamp(20px,2.2vw,28px) clamp(20px,2.2vw,28px);background:#F8F8F6;border:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard6.opacity }};transform:{{ revealStyle.whysweatCard6.transform }};transition:{{ revealStyle.whysweatCard6.transition }};">
+          <div style="font-size:clamp(20px,2.2vw,24px);font-weight:600;color:#23272B;">Build a routine that sticks</div>
+          <p style="margin:12px 0 0;font-size:clamp(16px,1.7vw,17px);line-height:1.62;color:#3F454B;">Something small and good to come back to each week — a rhythm worth keeping.</p>
+        </div>
+      </div>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:480px;margin:clamp(32px,5.5vw,68px) auto 0;">
+        <div data-reveal-key="whysweatCard1" style="padding:20px 0;border-top:1px solid #D7DBDD;border-bottom:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard1.opacity }};transform:{{ revealStyle.whysweatCard1.transform }};transition:{{ revealStyle.whysweatCard1.transition }};">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Enjoy a healthy sweat</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">The plain, good feeling of warming all the way through and letting go of the day.</p>
+        </div>
+        <div data-reveal-key="whysweatCard2" style="padding:20px 0;border-bottom:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard2.opacity }};transform:{{ revealStyle.whysweatCard2.transform }};transition:{{ revealStyle.whysweatCard2.transition }};">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Recover after hard days</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">A simple way to unwind after a workout, a shift, or a long day on your feet.</p>
+        </div>
+        <div data-reveal-key="whysweatCard3" style="padding:20px 0;border-bottom:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard3.opacity }};transform:{{ revealStyle.whysweatCard3.transform }};transition:{{ revealStyle.whysweatCard3.transition }};">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Loosen tired muscles</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">Heat has a way of taking the edge off stiffness and helping you feel loose again.</p>
+        </div>
+        <div data-reveal-key="whysweatCard4" style="padding:20px 0;border-bottom:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard4.opacity }};transform:{{ revealStyle.whysweatCard4.transform }};transition:{{ revealStyle.whysweatCard4.transition }};">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Support everyday wellness</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">Regular sauna use is broadly linked with relaxation, circulation, and lower stress.</p>
+        </div>
+        <div data-reveal-key="whysweatCard5" style="padding:20px 0;border-bottom:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard5.opacity }};transform:{{ revealStyle.whysweatCard5.transform }};transition:{{ revealStyle.whysweatCard5.transition }};">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Put your phone down</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">There's not much to do in a hot room but sit, breathe, and be off your screen.</p>
+        </div>
+        <div data-reveal-key="whysweatCard6" style="padding:20px 0;border-bottom:1px solid #D7DBDD;text-align:center;opacity:{{ revealStyle.whysweatCard6.opacity }};transform:{{ revealStyle.whysweatCard6.transform }};transition:{{ revealStyle.whysweatCard6.transition }};">
+          <div style="font-size:19px;font-weight:600;color:#23272B;">Build a routine that sticks</div>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3F454B;">Something small and good to come back to each week — a rhythm worth keeping.</p>
+        </div>
+      </div>
+      </sc-if>
+
+      <p data-reveal-key="whysweatDisclaimer" style="margin:clamp(40px,5vw,56px) auto 0;max-width:70ch;font-size:14px;line-height:1.6;color:#667382;font-style:normal;text-align:center;opacity:{{ revealStyle.whysweatDisclaimer.opacity }};transform:{{ revealStyle.whysweatDisclaimer.transform }};transition:{{ revealStyle.whysweatDisclaimer.transition }};">Local Sweat makes no medical promises. Sauna use affects everyone differently — listen to your body, and check with your doctor if you have questions about an existing condition.</p>
+    </div>
+  </section>
+
+
+
+  <section id="reflection" style="margin:0;padding:0;border-top:1px solid #C3C7C6;background:#F8F8F6;">
+    <div data-reveal-key="reflectionImage" style="position:relative;width:100%;height:clamp(420px,66vh,760px);overflow:hidden;background:#23272B;opacity:{{ revealStyle.reflectionImage.opacity }};transform:{{ revealStyle.reflectionImage.transform }};transition:{{ revealStyle.reflectionImage.transition }};">
+      <img src="assets/hallway-sauna.png" alt="A guest sits quietly on a bench checking her phone in the locker hallway as another guest walks toward the exit, with the steamy sauna visible through the glass door" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;transition:transform .6s cubic-bezier(0.22,0.61,0.36,1);" style-hover="transform:scale(1.01);">
+      <span style="position:absolute;right:16px;bottom:16px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.3px;letter-spacing:0.05em;text-transform:uppercase;color:#F8F8F6;background:rgba(35,39,43,0.55);padding:5.6px 9.4px;">CONCEPT RENDERING</span>
+    </div>
+    <div style="max-width:600px;margin:0 auto;padding:clamp(32px,4vw,52px) clamp(20px,4vw,36px) clamp(36px,4.5vw,56px);text-align:center;">
+      <h2 data-reveal-key="reflectionTitle" style="font-family: 'Montserrat',sans-serif; font-weight: 500; font-style: normal; font-size: clamp(28px,3.6vw,42px); line-height: 1.22; letter-spacing: -0.015em; color: #23272B; margin: 0; opacity: {{ revealStyle.reflectionTitle.opacity }}; transform: {{ revealStyle.reflectionTitle.transform }}; transition: {{ revealStyle.reflectionTitle.transition }};"><b>A place that asks almost nothing</b></h2>
+      <p data-reveal-key="reflectionBody1" style="margin:clamp(30px,5.5vw,60px) auto 0;max-width:420px;font-size:clamp(18px,1.9vw,21px);line-height:1.85;color:#3F454B;opacity:{{ revealStyle.reflectionBody1.opacity }};transform:{{ revealStyle.reflectionBody1.transform }};transition:{{ revealStyle.reflectionBody1.transition }};">
+        We spend a lot of time in places that ask something of us.<br>
+        Work asks us to perform.<br>
+        Home asks us to catch up.<br>
+        Our phones ask for our attention.
+      </p>
+      <p data-reveal-key="reflectionBody2" style="margin:clamp(34px,4.2vw,44px) auto 0;max-width:420px;font-size:clamp(18px,1.9vw,21px);line-height:1.85;color:#23272B;opacity:{{ revealStyle.reflectionBody2.opacity }};transform:{{ revealStyle.reflectionBody2.transform }};transition:{{ revealStyle.reflectionBody2.transition }};">Local Sweat asks for almost nothing.</p>
+      <p data-reveal-key="reflectionBody3" style="margin:clamp(34px,4.2vw,44px) auto 0;max-width:420px;font-size:clamp(18px,1.9vw,21px);line-height:1.85;color:#3F454B;opacity:{{ revealStyle.reflectionBody3.opacity }};transform:{{ revealStyle.reflectionBody3.transform }};transition:{{ revealStyle.reflectionBody3.transition }};">
+        Just a little time<br>and a&nbsp;little sweat.<br></p>
+      
+      <p data-reveal-key="reflectionClosing" style="margin: clamp(34px,4.2vw,44px) auto 0; max-width: 420px; font-size: clamp(19px,2vw,23px); line-height: 1.65; color: #23272B; opacity: {{ revealStyle.reflectionClosing.opacity }}; transform: {{ revealStyle.reflectionClosing.transform }}; transition: {{ revealStyle.reflectionClosing.transition }};">
+        We think every community deserves a place like that.<br>
+        If you agree, we'd love your help shaping it.
+      </p>
+    </div>
+  </section>
+
+  <section id="survey" style="background:#23272B;color:#F8F8F6;">
+    <div style="max-width:760px;margin:0 auto;padding:clamp(36px,5.5vw,72px) clamp(20px,4vw,36px);">
+      <div data-reveal-key="surveyCard" style="background:#F8F8F6;border-radius:2px;border:2px solid #23272B;padding:clamp(28px,3.5vw,40px) clamp(20px,3vw,34px);box-shadow:0 6px 24px rgba(0,0,0,0.14);opacity:{{ revealStyle.surveyCard.opacity }};transform:{{ revealStyle.surveyCard.transform }};transition:{{ revealStyle.surveyCard.transition }};">
+      <div style="text-align:center;margin-bottom:clamp(12px,2vw,20px);">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">The survey</span>
+          <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+        </div>
+      </div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(32px,4.8vw,60px);line-height:1.04;letter-spacing:-0.02em;color:#23272B;margin:clamp(24px,3vw,36px) auto 0;text-align:center;">Help Shape Local Sweat</h2>
+      <p style="margin:24px auto 0;font-size:18px;line-height:1.66;color:#3F454B;max-width:56ch;text-align:center;">We're trying to find out whether Manhattan wants a neighborhood sauna house. Rather than making assumptions, we'd rather ask the people who would actually use it.</p>
+      <p style="margin:16px auto 0;font-size:18px;line-height:1.66;color:#3F454B;max-width:56ch;text-align:center;">Your feedback will help determine whether Local Sweat should exist — and what it should become. About two minutes.</p>
+
+      <sc-if value="{{ surveyOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:clamp(32px,5.5vw,64px);">
+          <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:14px;">
+            <span style="font-size:13px;font-weight:500;letter-spacing:0.06em;color:#667382;">Question {{ stepNumber }} of {{ totalSteps }}</span>
+          </div>
+          <div style="width:100%;max-width:360px;margin:0 auto;height:9px;background:#C3C7C6;border-radius:2px;overflow:hidden;">
+            <div style="height:100%;background:#23272B;border-radius:2px;width:{{ progressPercent }}%;transition:width .45s cubic-bezier(0.22,0.61,0.36,1);"></div>
+          </div>
+
+          <div style="border-top:1px solid #C3C7C6;margin-top:clamp(34px,4.5vw,48px);padding-top:clamp(34px,4.5vw,48px);min-height:260px;opacity:{{ questionOpacity }};transform:{{ questionTransform }};transition:opacity .32s cubic-bezier(0.22,0.61,0.36,1), transform .32s cubic-bezier(0.22,0.61,0.36,1);">
+            <div style="font-family:'Montserrat',sans-serif;font-size:clamp(22px,2.6vw,28px);font-weight:400;color:#23272B;line-height:1.32;margin-bottom:10px;text-align:center;">{{ currentQuestion.label }}</div>
+            <sc-if value="{{ currentQuestion.sublabel }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:14px;color:#667382;text-align:center;margin-bottom:24px;">{{ currentQuestion.sublabel }}</div>
+            </sc-if>
+            <sc-if value="{{ currentQuestion.isChoice }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px;">
+                <sc-for list="{{ currentQuestion.options }}" as="opt" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:6px;max-width:240px;">
+                    <button onClick="{{ opt.onSelect }}" style="{{ opt.style }}" style-hover="border-color:#23272B;">{{ opt.label }}</button>
+                    <sc-if value="{{ opt.note }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size:12px;line-height:1.5;color:#667382;text-align:center;">{{ opt.note }}</div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ currentQuestion.hasOther }}" hint-placeholder-val="{{ false }}">
+                <div style="max-width:420px;margin:18px auto 0;">
+                  <input value="{{ currentQuestion.otherValue }}" onChange="{{ currentQuestion.onOtherInput }}" placeholder="Tell us more…" style="width:100%;padding:14px 16px;border:1px solid #D7DBDD;border-radius:2px;background:#FFFFFF;font-size:15px;color:#23272B;">
+                </div>
+              </sc-if>
+            </sc-if>
+            <sc-if value="{{ currentQuestion.isText }}" hint-placeholder-val="{{ false }}">
+              <textarea value="{{ currentQuestion.textValue }}" onChange="{{ currentQuestion.onInput }}" placeholder="{{ currentQuestion.placeholder }}" style="width:100%;min-height:104px;padding:16px 18px;border:1px solid #D7DBDD;border-radius:2px;background:#FFFFFF;font-size:16px;line-height:1.5;color:#23272B;resize:vertical;margin-top:22px;"></textarea>
+            </sc-if>
+            <sc-if value="{{ currentQuestion.footnote }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:22px auto 0;max-width:52ch;font-size:13px;line-height:1.6;color:#667382;font-style:normal;text-align:center;">{{ currentQuestion.footnote }}</p>
+            </sc-if>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px;">
+            <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ onBack }}" style="display:inline-flex;align-items:center;justify-content:center;padding:16px 26px;background:transparent;color:#667382;border:1px solid #D7DBDD;border-radius:2px;font-size:15px;font-weight:500;cursor:pointer;transition:border-color .2s ease, transform .18s ease;" style-hover="border-color:#23272B;transform:translateY(-1px);">Back</button>
+            </sc-if>
+            <button onClick="{{ onNext }}" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 34px;background:#23272B;color:#F8F8F6;border:1px solid #23272B;border-radius:2px;font-size:16px;font-weight:600;letter-spacing:0.01em;cursor:pointer;transition:opacity .2s ease, transform .18s ease, box-shadow .18s ease;" style-hover="opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,0.2);">{{ nextLabel }}</button>
+          </div>
+          <p style="margin:18px 0 0;font-size:13px;color:#667382;text-align:center;">Responses remain anonymous.&nbsp;</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ surveyDone }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:52px;border-top:1px solid #C3C7C6;padding-top:52px;text-align:center;">
+          <div style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#667382;">Received</div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:clamp(26px,3.4vw,40px);line-height:1.12;color:#23272B;margin:18px 0 0;">Thank you.</h3>
+          <p style="margin:20px 0 0;font-size:18px;line-height:1.66;color:#3F454B;max-width:54ch;">Your feedback genuinely helps us understand whether Manhattan wants a neighborhood sauna house. We appreciate you taking a few minutes to help shape Local Sweat.</p>
+          <a href="#interest" style="display:inline-flex;align-items:center;margin-top:28px;padding:14px 26px;background:transparent;color:#23272B;border:1px solid #D7DBDD;border-radius:2px;font-size:15px;font-weight:500;text-decoration:none;transition:border-color .2s ease;" style-hover="border-color:#23272B;">Join the interest list</a>
+        </div>
+      </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section id="interest" style="max-width:1180px;margin:0 auto;padding:clamp(36px,5.5vw,72px) clamp(20px,4vw,36px);border-top:1px solid #C3C7C6;">
+    <div data-reveal-key="interestHeader" style="text-align:center;margin-bottom:clamp(32px,5.5vw,64px);opacity:{{ revealStyle.interestHeader.opacity }};transform:{{ revealStyle.interestHeader.transform }};transition:{{ revealStyle.interestHeader.transition }};">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">Stay in touch</span>
+        <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:clamp(30px,4.5vw,48px);text-align:center;max-width:520px;margin:0 auto;">
+      <div data-reveal-key="interestBody" style="width:100%;opacity:{{ revealStyle.interestBody.opacity }};transform:{{ revealStyle.interestBody.transform }};transition:{{ revealStyle.interestBody.transition }};">
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,48px);line-height:1.1;letter-spacing:-0.02em;color:#23272B;margin:0 auto;max-width:18ch;text-align:center;">Stay in the Loop</h2>
+        <p style="margin:24px auto 0;max-width:52ch;font-size:18px;line-height:1.66;color:#3F454B;text-align:center;">If you'd like occasional updates as Local Sweat evolves, we'd love to keep you informed. We'll only email when there's something worth sharing — survey results, design updates, construction progress, opening announcements, and Founding Member opportunities.</p>
+        <p style="margin:16px auto 0;max-width:52ch;font-size:15px;line-height:1.6;color:#667382;text-align:center;">Early sign-ups would get first access and a heads-up on pricing before we open to the public — details are still being worked out, and your feedback will help shape them.</p>
+      </div>
+      <div data-reveal-key="interestForm" style="width:100%;max-width:460px;margin:0 auto;opacity:{{ revealStyle.interestForm.opacity }};transform:{{ revealStyle.interestForm.transform }};transition:{{ revealStyle.interestForm.transition }};">
+        <sc-if value="{{ interestOpen }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <input value="{{ name }}" onChange="{{ onName }}" placeholder="First name (optional)" style="width:100%;padding:16px 18px;border:1px solid #A5ADB5;border-radius:2px;background:#F2F2F0;font-size:16px;color:#23272B;">
+            <input value="{{ email }}" onChange="{{ onEmail }}" placeholder="you@email.com" type="email" style="width:100%;padding:16px 18px;border:1px solid #A5ADB5;border-radius:2px;background:#F2F2F0;font-size:16px;color:#23272B;">
+            <button onClick="{{ onSubmitInterest }}" style="width:100%;display:inline-flex;align-items:center;justify-content:center;padding:16px 26px;background:#23272B;color:#F8F8F6;border:1px solid #23272B;border-radius:2px;font-size:16px;font-weight:500;cursor:pointer;transition:background .2s ease, transform .18s ease, box-shadow .18s ease;" style-hover="background:#15181A;transform:translateY(-2px);box-shadow:0 8px 18px rgba(35,39,43,0.18);">Keep me posted</button>
+            <p style="margin:4px 0 0;font-size:13px;color:#667382;">No pressure, no spam. Unsubscribe any time.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ interestDone }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:32px 28px;border:1px solid #A5ADB5;border-radius:2px;background:#F2F2F0;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:26px;color:#23272B;line-height:1.2;">You're on the list.</div>
+            <p style="margin:14px 0 0;font-size:16px;line-height:1.6;color:#3F454B;">Thanks for coming along with us. We'll be in touch when there's something worth sharing.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="border-top:1px solid #C3C7C6;">
+    <div style="max-width:920px;margin:0 auto;padding:clamp(36px,5.5vw,72px) clamp(20px,4vw,36px);">
+    <button data-reveal-key="faqHeaderA" onClick="{{ onToggleFaqSection }}" style="width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:0;margin-bottom:clamp(20px,2.4vw,28px);opacity:{{ revealStyle.faqHeaderA.opacity }};transform:{{ revealStyle.faqHeaderA.transform }};transition:{{ revealStyle.faqHeaderA.transition }};">
+      <span style="font-size:clamp(11px,1.3vw,13px);font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#667382;">Questions</span>
+      <span style="width:24px;height:2px;background:#23272B;margin-top:10px;"></span>
+    </button>
+    <button data-reveal-key="faqHeaderB" onClick="{{ onToggleFaqSection }}" style="width:100%;display:flex;align-items:center;justify-content:center;gap:16px;background:transparent;border:none;cursor:pointer;padding:0;text-align:center;opacity:{{ revealStyle.faqHeaderB.opacity }};transform:{{ revealStyle.faqHeaderB.transform }};transition:{{ revealStyle.faqHeaderB.transition }};">
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,56px);line-height:1.08;letter-spacing:-0.02em;color:#23272B;margin:0;max-width:28ch;">FAQ</h2>
+      <span style="font-family:'Montserrat',sans-serif;font-size:clamp(26px,3vw,34px);color:#667382;flex:none;line-height:1;transform:{{ faqSectionCaretTransform }};transition:transform .35s ease;"></span>
+    </button>
+    <button onClick="{{ onToggleFaqSection }}" style="display:block;width:100%;text-align:center;margin-top:16px;background:transparent;border:none;cursor:pointer;padding:0;">
+      <span style="font-size:15px;color:#667382;text-decoration:underline;text-underline-offset:3px;">{{ faqSectionHint }}</span>
+    </button>
+    <div style="{{ faqSectionBodyStyle }}">
+    <div data-reveal-key="faqList" style="border-bottom:1px solid #B7BCBE;margin-top:clamp(36px,4.5vw,52px);opacity:{{ revealStyle.faqList.opacity }};transform:{{ revealStyle.faqList.transform }};transition:{{ revealStyle.faqList.transition }};">
+      <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="8">
+        <div style="border-top:2px solid #23272B;">
+          <button onClick="{{ faq.onToggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 2px;background:transparent;border:none;cursor:pointer;text-align:left;">
+            <span style="font-family:'Montserrat',sans-serif;font-size:clamp(19px,2.2vw,25px);font-weight:400;color:#23272B;line-height:1.3;">{{ faq.q }}</span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:28px;color:#667382;flex:none;width:22px;text-align:center;line-height:1;">{{ faq.sign }}</span>
+          </button>
+          <div style="{{ faq.bodyStyle }}">
+            <p style="margin:0;padding:0 2px 30px;max-width:64ch;font-size:17px;line-height:1.7;color:#3F454B;white-space:pre-wrap;">{{ faq.a }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <footer style="background:#F8F8F6;border-top:2px solid #23272B;color:#3F454B;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(32px,4vw,48px) clamp(20px,5vw,48px) 28px;">
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-wrap:wrap;gap:80px;justify-content:space-between;align-items:flex-end;text-align:center;">
+        <div style="flex:1 1 220px;text-align:left;">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#667382;margin-bottom:18px;">Get in touch</div>
+          <a href="/cdn-cgi/l/email-protection#6f060109002f03000c0e031c180a0e1b1c0e1a010e07001a1c0a410c0002" style="display:block;color:#23272B;text-decoration:none;font-size:16px;transition:color .2s ease;" style-hover="color:#000;"><span class="__cf_email__" data-cfemail="91f8fff7fed1fdfef2f0fde2e6f4f0e5e2f0e4fff0f9fee4e2f4bff2fefc">[email&#160;protected]</span></a>
+        </div>
+        <div style="flex: 1 1 220px; display: flex; flex-direction: column; align-items: flex-end">
+          <a href="#survey" onClick="{{ onSurveyClick }}" style="color: #23272B; text-decoration: none; font-size: 16px; margin-bottom: 8px; transition: color .2s ease; text-align: right" style-hover="color:#000;">Survey</a>
+          <a href="#interest" style="color: #23272B; text-decoration: none; font-size: 16px; margin-bottom: 8px; transition: color .2s ease; text-align: right" style-hover="color:#000;">Interest list</a>
+          <a href="#faq" style="color: #23272B; text-decoration: none; font-size: 16px; transition: color .2s ease; text-align: right" style-hover="color:#000;">Questions</a>
+        </div>
+      </div>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:36px;text-align:center;">
+        <div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#667382;margin-bottom:14px;">Get in touch</div>
+          <a href="/cdn-cgi/l/email-protection#70191e161f301c1f13111c03071511040311051e11181f0503155e131f1d" style="display:block;color:#23272B;text-decoration:none;font-size:16px;transition:color .2s ease;" style-hover="color:#000;"><span class="__cf_email__" data-cfemail="6a03040c052a0605090b06191d0f0b1e190b1f040b02051f190f44090507">[email&#160;protected]</span></a>
+        </div>
+        <div>
+          <a href="#survey" onClick="{{ onSurveyClick }}" style="display:block;color:#23272B;text-decoration:none;font-size:16px;margin-bottom:8px;transition:color .2s ease;" style-hover="color:#000;">Survey</a>
+          <a href="#interest" style="display:block;color:#23272B;text-decoration:none;font-size:16px;margin-bottom:8px;transition:color .2s ease;" style-hover="color:#000;">Interest list</a>
+          <a href="#faq" style="display:block;color:#23272B;text-decoration:none;font-size:16px;transition:color .2s ease;" style-hover="color:#000;">Questions</a>
+        </div>
+      </div>
+      </sc-if>
+      <div style="margin-top:28px;padding-top:20px;border-top:2px solid #23272B;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;text-align:left;">
+        <span style="font-size:13px;color:#667382;">© 2026 Local Sweat. An idea in progress.</span>
+        <span style="font-size:13px;color:#667382;">Not open yet — you're helping decide if it should be.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1180, &quot;height&quot;: 820 },
+  &quot;showPlaceholderCaptions&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Editorial&quot; },
+  &quot;calmMode&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Motion&quot; },
+  &quot;navIndicatorColor&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#667382&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#667382&quot;, &quot;#946B52&quot;, &quot;#5B6B7A&quot;], &quot;section&quot;: &quot;Motion&quot; }
+}">
+class Component extends DCLogic {
+  state = {
+    faqSectionOpen: false,
+    faqOpen: null,
+    floorPlanOpen: false,
+    answers: { q1: null, q2: [], q3: null, q4: null, q5: [], q6: [], q6other: '', q7: null, q8: '', q9: null, q10: null },
+    surveyStep: 0,
+    surveyDone: false,
+    email: '',
+    name: '',
+    interestDone: false,
+    revealed: {},
+    activeSection: '',
+    questionVisible: true,
+    loaded: false,
+    pastCtaThreshold: false,
+    surveyInView: false,
+    isMobile: false,
+  };
+
+  heroImgRef = React.createRef();
+
+  componentDidMount() {
+    this.mobileMq = window.matchMedia('(max-width: 700px)');
+    this.setState({ isMobile: this.mobileMq.matches }, () => this.setupRevealObserver());
+    this.onMqChange = (e) => this.setState({ isMobile: e.matches }, () => this.setupRevealObserver());
+    if (this.mobileMq.addEventListener) this.mobileMq.addEventListener('change', this.onMqChange);
+
+    if (this.props.calmMode) {
+      this.setState({ loaded: true });
+    } else {
+      requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ loaded: true })));
+    }
+
+    const navIds = ['about', 'expect', 'faq'];
+    this.navIo = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) this.setState({ activeSection: en.target.id });
+      });
+    }, { threshold: 0, rootMargin: '-40% 0px -55% 0px' });
+    navIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) this.navIo.observe(el);
+    });
+
+    this.onScroll = () => {
+      if (!this.props.calmMode) {
+        const img = this.heroImgRef.current;
+        if (img) {
+          const y = window.scrollY;
+          const shift = Math.max(-24, Math.min(24, y * 0.05));
+          img.style.transform = 'translateY(' + shift.toFixed(1) + 'px) scale(1.06)';
+        }
+      }
+      const insideEl = document.getElementById('inside');
+      let past = false;
+      if (insideEl) {
+        const rect = insideEl.getBoundingClientRect();
+        const midpointY = rect.top + rect.height / 2;
+        past = midpointY <= window.innerHeight / 2;
+      }
+      if (past !== this.state.pastCtaThreshold) {
+        this.setState({ pastCtaThreshold: past });
+      }
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+
+    const surveyEl = document.getElementById('survey');
+    if (surveyEl) {
+      this.surveyIo = new IntersectionObserver((entries) => {
+        entries.forEach((en) => this.setState({ surveyInView: en.isIntersecting }));
+      }, { threshold: 0.01 });
+      this.surveyIo.observe(surveyEl);
+    }
+  }
+
+  setupRevealObserver() {
+    if (!this.revealIo) {
+      this.revealIo = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            const key = en.target.getAttribute('data-reveal-key');
+            this.setState((s) => (s.revealed[key] ? null : { revealed: { ...s.revealed, [key]: true } }));
+            this.revealIo.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }
+    requestAnimationFrame(() => {
+      document.querySelectorAll('[data-reveal-key]').forEach((el) => {
+        const key = el.getAttribute('data-reveal-key');
+        if (!this.state.revealed[key]) this.revealIo.observe(el);
+      });
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isMobile !== this.state.isMobile && this.revealIo) {
+      this.setupRevealObserver();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.revealIo) this.revealIo.disconnect();
+    if (this.navIo) this.navIo.disconnect();
+    if (this.surveyIo) this.surveyIo.disconnect();
+    if (this.onScroll) window.removeEventListener('scroll', this.onScroll);
+    if (this._qTimer) clearTimeout(this._qTimer);
+    if (this.mobileMq && this.mobileMq.removeEventListener) this.mobileMq.removeEventListener('change', this.onMqChange);
+  }
+
+  reveal(key, delayMs) {
+    if (this.props.calmMode) {
+      return { opacity: 1, transform: 'none', transition: 'none' };
+    }
+    const seen = !!this.state.revealed[key];
+    return {
+      opacity: seen ? 1 : 0,
+      transform: seen ? 'translateY(0)' : 'translateY(16px)',
+      transition: 'opacity 0.6s cubic-bezier(0.22,0.61,0.36,1) ' + delayMs + 'ms, transform 0.6s cubic-bezier(0.22,0.61,0.36,1) ' + delayMs + 'ms',
+    };
+  }
+
+  loadStyle(delayMs, distancePx) {
+    if (this.props.calmMode) {
+      return { opacity: 1, transform: 'none', transition: 'none' };
+    }
+    const dist = distancePx == null ? 14 : distancePx;
+    const ready = this.state.loaded;
+    return {
+      opacity: ready ? 1 : 0,
+      transform: ready ? 'translateY(0)' : ('translateY(' + dist + 'px)'),
+      transition: 'opacity 0.6s cubic-bezier(0.22,0.61,0.36,1) ' + delayMs + 'ms, transform 0.6s cubic-bezier(0.22,0.61,0.36,1) ' + delayMs + 'ms',
+    };
+  }
+
+  smoothScrollToSurvey(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const target = document.getElementById('survey');
+    if (!target) return;
+    if (this.props.calmMode) {
+      target.scrollIntoView();
+      return;
+    }
+    const startY = window.scrollY;
+    const endY = target.getBoundingClientRect().top + window.scrollY;
+    const duration = 850;
+    const startTime = performance.now();
+    const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const t = Math.min(1, elapsed / duration);
+      window.scrollTo(0, startY + (endY - startY) * ease(t));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  toggleFaq(i) {
+    this.setState(s => ({ faqOpen: s.faqOpen === i ? null : i }));
+  }
+
+  toggleFaqSection() {
+    this.setState(s => ({ faqSectionOpen: !s.faqSectionOpen }));
+  }
+
+  toggleFloorPlan() {
+    this.setState(s => ({ floorPlanOpen: !s.floorPlanOpen }));
+  }
+
+  selectSingle(qid, val) {
+    this.setState(s => ({ answers: { ...s.answers, [qid]: val } }));
+  }
+
+  toggleMulti(qid, val) {
+    this.setState(s => {
+      const cur = s.answers[qid] || [];
+      const has = cur.indexOf(val) > -1;
+      return { answers: { ...s.answers, [qid]: has ? cur.filter(v => v !== val) : cur.concat([val]) } };
+    });
+  }
+
+  setAnswerText(qid, val) {
+    this.setState(s => ({ answers: { ...s.answers, [qid]: val } }));
+  }
+
+  transitionStep(mutate) {
+    if (this.props.calmMode) {
+      mutate();
+      return;
+    }
+    this.setState({ questionVisible: false });
+    if (this._qTimer) clearTimeout(this._qTimer);
+    this._qTimer = setTimeout(() => {
+      mutate();
+      this.setState({ questionVisible: true });
+    }, 180);
+  }
+
+  goBack() {
+    this.transitionStep(() => this.setState(s => ({ surveyStep: Math.max(0, s.surveyStep - 1) })));
+  }
+
+  advanceOrSubmit(totalSteps) {
+    if (this.state.surveyStep >= totalSteps - 1) {
+      this.submitSurvey();
+    } else {
+      this.transitionStep(() => this.setState(s => ({ surveyStep: s.surveyStep + 1 })));
+    }
+  }
+
+  submitSurvey() {
+    try {
+      const prev = JSON.parse(localStorage.getItem('localsweat_survey') || '[]');
+      prev.push({ ...this.state.answers, at: Date.now() });
+      localStorage.setItem('localsweat_survey', JSON.stringify(prev));
+    } catch (e) {}
+    this.sendToSheet({ type: 'survey', ...this.state.answers, submittedAt: new Date().toISOString() });
+    this.setState({ surveyDone: true });
+  }
+
+  sendToSheet(payload) {
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzXbicE9gSukbXqRTeTyTJ1fnGrDQs1qEdpj7qmDFJbe-g-XT1SukAdAVb4LD6DbqU_uA/exec';
+    try {
+      fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      }).catch(() => {});
+    } catch (e) {}
+  }
+
+  submitInterest() {
+    if (!this.state.email || this.state.email.indexOf('@') < 0) return;
+    try {
+      const prev = JSON.parse(localStorage.getItem('localsweat_interest') || '[]');
+      prev.push({ name: this.state.name, email: this.state.email, at: Date.now() });
+      localStorage.setItem('localsweat_interest', JSON.stringify(prev));
+    } catch (e) {}
+    this.sendToSheet({ type: 'interest', name: this.state.name, email: this.state.email, submittedAt: new Date().toISOString() });
+    this.setState({ interestDone: true });
+  }
+
+  chipStyle(sel) {
+    return {
+      display: 'inline-flex',
+      alignItems: 'center',
+      padding: '11px 18px',
+      borderRadius: '2px',
+      fontSize: '15px',
+      fontWeight: 500,
+      lineHeight: 1.2,
+      cursor: 'pointer',
+      border: '1px solid ' + (sel ? '#23272B' : '#D7DBDD'),
+      background: sel ? '#23272B' : 'transparent',
+      color: sel ? '#F8F8F6' : '#3F454B',
+      transition: 'all 0.2s cubic-bezier(0.22,0.61,0.36,1)',
+    };
+  }
+
+  renderVals() {
+    const a = this.state.answers;
+    const calmMode = !!this.props.calmMode;
+    const navColor = this.props.navIndicatorColor || '#667382';
+
+    const loadAnim = {
+      header: this.loadStyle(0, 10),
+      hero: this.loadStyle(100, 10),
+      headlineKicker: this.loadStyle(280, 16),
+      headlineLine1: this.loadStyle(360, 18),
+      headlineLine2: this.loadStyle(430, 18),
+      headlineLine3: this.loadStyle(500, 18),
+      divider: this.loadStyle(580, 10),
+      badge: this.loadStyle(640, 10),
+      paragraph: this.loadStyle(720, 14),
+      buttons: this.loadStyle(860, 12),
+      aboutHeader: this.loadStyle(860, 14),
+      aboutBody: this.loadStyle(980, 14),
+    };
+
+    const revealDefs = [
+      ['whyhereHeader', 0], ['whyhereText', 100], ['whyhereImage', 160],
+      ['whyhereCard1', 220], ['whyhereCard2', 300], ['whyhereCard3', 380],
+      ['whoHeader', 0], ['whoChips', 120], ['whoBody', 200],
+      ['insideHeader', 0],
+      ['insideCard1', 100], ['insideCard2', 170], ['insideCard3', 240], ['insideCard4', 310], ['insideCard5', 380],
+      ['expectHeader', 0],
+      ['expectCard1', 100], ['expectCard2', 170], ['expectCard3', 240], ['expectCard4', 310], ['expectCard5', 380], ['expectClosing', 220],
+      ['whysweatHeader', 0], ['whysweatImage', 120],
+      ['whysweatCard1', 180], ['whysweatCard2', 250], ['whysweatCard3', 320], ['whysweatCard4', 390], ['whysweatCard5', 460], ['whysweatCard6', 530], ['whysweatDisclaimer', 600],
+      ['reflectionImage', 0], ['reflectionTitle', 0], ['reflectionBody1', 100], ['reflectionBody2', 180], ['reflectionBody3', 240], ['reflectionBody4', 300], ['reflectionClosing', 360],
+      ['surveyCard', 0],
+      ['interestHeader', 0], ['interestBody', 120], ['interestForm', 220],
+      ['faqHeaderA', 0], ['faqHeaderB', 80], ['faqList', 160],
+    ];
+    const revealStyle = {};
+    revealDefs.forEach(([key, delay]) => { revealStyle[key] = this.reveal(key, delay); });
+
+    const navUnderline = {
+      about: this.state.activeSection === 'about' ? ('2px solid ' + navColor) : '2px solid transparent',
+      expect: this.state.activeSection === 'expect' ? ('2px solid ' + navColor) : '2px solid transparent',
+      faq: this.state.activeSection === 'faq' ? ('2px solid ' + navColor) : '2px solid transparent',
+    };
+
+    const defs = [
+      { id: 'q1', label: 'How often have you used a sauna?', type: 'single', options: ['Regularly', 'A few times', 'Once or twice', 'Never'] },
+      { id: 'q2', label: 'Why would you come?', sublabel: 'Select all that apply.', type: 'multi', options: ['Recover after a workout', 'Decompress after work', 'Stress relief', 'Support my overall wellness', 'Support my mental well-being', 'Enjoy a healthy sweat', 'Stretch or move a little before heading home', 'Quiet time away from screens', 'Spend time with friends or family', 'Warm up during winter', "I'm simply curious"] },
+      { id: 'q3', label: 'If Local Sweat became part of your routine, how often would you visit?', type: 'single', options: ['Two to three times per week', 'About once a week', 'A couple of times each month', 'Every now and then', 'Not sure yet'] },
+      { id: 'q4', label: 'Who would you usually come with?', type: 'single', options: ['Just me', 'A friend or partner', 'A small group', 'Family', 'Coworkers', 'Any of the above, depending on the day'] },
+      { id: 'q5', label: 'What would make Local Sweat most valuable to you?', sublabel: 'Select all that apply.', type: 'multi', options: ['Community sauna', 'Private sauna', 'Monthly memberships', 'Student pricing', 'Couples visits', 'Morning hours', 'Evening hours', 'Corporate wellness programs', 'Early Founding Member pricing'], optionNotes: { 'Corporate wellness programs': 'Employer-sponsored memberships or wellness benefits offered through local businesses and organizations.' } },
+      { id: 'q6', label: 'What might keep you from visiting?', sublabel: 'Select all that apply.', type: 'multi', hasOther: true, options: ['Price or finances', 'Transportation or location', 'Not enough time', 'Childcare responsibilities', "I've never tried a sauna before", "I'm not sure what to wear", 'Privacy concerns', 'Cleanliness concerns', 'The heat', "I don't think sauna is for me", "I'd rather spend my free time differently", 'I already have access to a sauna', "I'm simply not interested in this type of business", 'Nothing would keep me from coming'] },
+      { id: 'q7', label: 'If Local Sweat opened tomorrow, how likely would you be to visit?', type: 'single', options: ['Definitely would', 'Probably would', 'Maybe', 'Probably would not', 'Not interested right now'] },
+      { id: 'q8', label: 'If you could change one thing about this idea, what would it be?', sublabel: 'Optional.', type: 'text', placeholder: 'Anything at all…' },
+      { id: 'q9', label: 'Which age group are you in?', sublabel: 'Optional.', type: 'single', options: ['Under 18', '18–24', '25–34', '35–44', '45–54', '55–64', '65+', 'Prefer not to say'] },
+      { id: 'q10', label: 'Where do you spend most of your time?', sublabel: 'Optional.', type: 'single', options: ['I live in Manhattan', 'I work in Manhattan', 'I both live and work in Manhattan', "I'm a Kansas State student", 'I live outside Manhattan but visit often', "I don't live near Manhattan"] },
+    ];
+
+    const totalSteps = defs.length;
+    const stepIndex = Math.min(this.state.surveyStep, totalSteps - 1);
+    const d = defs[stepIndex];
+
+    let currentQuestion;
+    if (d.type === 'text') {
+      currentQuestion = {
+        label: d.label,
+        sublabel: d.sublabel || '',
+        isChoice: false,
+        isText: true,
+        placeholder: d.placeholder,
+        textValue: a[d.id] || '',
+        onInput: (e) => this.setAnswerText(d.id, e.target.value),
+        footnote: d.footnote || '',
+      };
+    } else {
+      const multi = d.type === 'multi';
+      const options = d.options.map(opt => {
+        const sel = multi ? (a[d.id] || []).indexOf(opt) > -1 : a[d.id] === opt;
+        return {
+          label: opt,
+          note: (d.optionNotes && d.optionNotes[opt]) || '',
+          style: this.chipStyle(sel),
+          onSelect: multi ? (() => this.toggleMulti(d.id, opt)) : (() => this.selectSingle(d.id, opt)),
+        };
+      });
+      currentQuestion = {
+        label: d.label,
+        sublabel: d.sublabel || '',
+        isChoice: true,
+        isText: false,
+        options,
+        hasOther: !!d.hasOther,
+        otherValue: a.q6other || '',
+        onOtherInput: (e) => this.setAnswerText('q6other', e.target.value),
+        footnote: d.footnote || '',
+      };
+    }
+
+    const faqDefs = [
+      { q: "I've never used a sauna. Will I feel out of place?", a: "Not at all. Most people walking through the door will be trying it for the first time too. There's no ritual to learn and no etiquette to get wrong — you warm up, you rest, you leave. If you have a question, just ask." },
+      { q: "How hot does it get, and is that safe for me?", a: "Our saunas are maintained around 180°F, similar to the temperatures used in many traditional Finnish saunas. Stay as long as feels comfortable—many guests enjoy 10–20 minute sessions." },
+      { q: "What do I wear?", a: "Whatever makes you comfortable is probably just right. Most guests wear a t-shirt with shorts or leggings. We simply ask that clothing stays comfortably modest. Bring a towel to sit on, or use our towel service." },
+      { q: "How long should I stay?", a: "As long as it feels good. Many people enjoy 10–20 minute sauna sessions, while others spend an hour or more relaxing with a few sauna rounds and breaks in between. Both are completely normal." },
+      { q: "Do I need to be fit or a 'wellness person'?", a: "No. This is built for everyday people — after work, after a workout, or just to warm up. You don't need to be in shape, and you don't need to know anything about saunas." },
+      { q: "Can I come with friends, or is it a solo thing?", a: "Either! Some days you might want a little conversation. Other days you might not. That's why we have both a ten-person community sauna and three private saunas." },
+      { q: "Is Local Sweat open yet?", a: "Not yet! We're starting with a simple question: Would people here actually use a place like this? If enough people are excited about the idea, we'll take the next step. Your survey is an important part of that process." },
+      { q: "Is there an age requirement?", a: "Yes — guests must be 18 or older, or accompanied by a guardian." },
+      { q: "What does the research actually say about sauna and health?", a: "Research suggests regular sauna use may be associated with better cardiovascular health, lower stress, and improved longevity. Some of the strongest evidence comes from Finland, where sauna bathing has been part of everyday life for generations.\n\nOne long-running study followed more than 2,300 middle-aged men for over 20 years and found that people who used a sauna 4–7 times per week had substantially lower rates of cardiovascular and all-cause mortality than those who went once a week. Other studies have reported similar associations with stroke and cognitive health.\n\nIt's important to be honest about what the research can—and can't—say. Most of this evidence is observational, meaning it shows a strong relationship rather than proving sauna use directly caused the benefits. While the findings are encouraging and increasingly consistent, sauna isn't a substitute for medical care or a healthy lifestyle." },
+      { q: "Do you offer hydrogen water, and what does the science say about it?", a: "Yes. We'll offer both filtered reverse osmosis water and hydrogen-rich water.\n\nThe research on hydrogen water is promising but still developing. Some small human studies have suggested possible benefits for exercise recovery and markers related to inflammation and oxidative stress, but larger, high-quality studies are still needed before scientists can draw firm conclusions.\n\nWe think it's worth offering because it's safe, interesting, and inexpensive—not because we believe it's a miracle. If you'd rather have filtered water, that'll always be available too." },
+      { q: "What will it cost, and where will it be?", a: "Honestly, we don't know yet. Price and location are some of the things we're still figuring out — and the survey helps us get them right. Add your email and we'll share news as it firms up." },
+    ];
+
+    const faqs = faqDefs.map((f, i) => {
+      const open = this.state.faqOpen === i;
+      return {
+        q: f.q,
+        a: f.a,
+        sign: open ? '\u2013' : '+',
+        bodyStyle: {
+          overflow: 'hidden',
+          maxHeight: open ? '600px' : '0px',
+          opacity: open ? 1 : 0,
+          transition: 'max-height 0.45s cubic-bezier(0.22,0.61,0.36,1), opacity 0.35s ease',
+        },
+        onToggle: () => this.toggleFaq(i),
+      };
+    });
+
+    return {
+      showIndices: this.props.showIndices ?? true,
+      showPlaceholderCaptions: this.props.showPlaceholderCaptions ?? true,
+      currentQuestion,
+      stepNumber: stepIndex + 1,
+      totalSteps,
+      progressPercent: Math.round(((stepIndex + 1) / totalSteps) * 100),
+      questionOpacity: this.state.questionVisible ? 1 : 0,
+      questionTransform: this.state.questionVisible ? 'translateY(0)' : 'translateY(8px)',
+      showBack: stepIndex > 0,
+      onBack: () => this.goBack(),
+      onNext: () => this.advanceOrSubmit(totalSteps),
+      nextLabel: stepIndex >= totalSteps - 1 ? 'Send my answers' : 'Next question →',
+      faqs,
+      onToggleFaqSection: () => this.toggleFaqSection(),
+      faqSectionCaretTransform: this.state.faqSectionOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      faqSectionHint: this.state.faqSectionOpen ? 'Tap a question to read the answer' : 'Tap to see the questions',
+      faqSectionBodyStyle: {
+        overflow: 'hidden',
+        maxHeight: this.state.faqSectionOpen ? '2600px' : '0px',
+        opacity: this.state.faqSectionOpen ? 1 : 0,
+        transition: 'max-height 0.55s cubic-bezier(0.22,0.61,0.36,1), opacity 0.4s ease',
+      },
+      onToggleFloorPlan: () => this.toggleFloorPlan(),
+      floorPlanLabel: this.state.floorPlanOpen ? 'Hide the floor plan' : 'See the floor plan',
+      floorPlanCaretTransform: this.state.floorPlanOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      floorPlanBodyStyle: {
+        overflow: 'hidden',
+        maxHeight: this.state.floorPlanOpen ? '1400px' : '0px',
+        opacity: this.state.floorPlanOpen ? 1 : 0,
+        transition: 'max-height 0.5s cubic-bezier(0.22,0.61,0.36,1), opacity 0.4s ease',
+      },
+      surveyDone: this.state.surveyDone,
+      surveyOpen: !this.state.surveyDone,
+      onSubmitSurvey: () => this.submitSurvey(),
+      email: this.state.email,
+      name: this.state.name,
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      onName: (e) => this.setState({ name: e.target.value }),
+      onSubmitInterest: () => this.submitInterest(),
+      interestDone: this.state.interestDone,
+      interestOpen: !this.state.interestDone,
+      loadAnim,
+      revealStyle,
+      navUnderline,
+      heroImgRef: this.heroImgRef,
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      onSurveyClick: (e) => this.smoothScrollToSurvey(e),
+      floatingCtaStyle: (() => {
+        const visible = this.state.pastCtaThreshold && !this.state.surveyInView;
+        if (calmMode) {
+          return { opacity: visible ? 1 : 0, transform: 'none', pointerEvents: visible ? 'auto' : 'none', transition: 'none' };
+        }
+        return {
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'translateY(0)' : 'translateY(10px)',
+          pointerEvents: visible ? 'auto' : 'none',
+          transition: 'opacity 0.5s cubic-bezier(0.22,0.61,0.36,1), transform 0.5s cubic-bezier(0.22,0.61,0.36,1)',
+        };
+      })(),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
