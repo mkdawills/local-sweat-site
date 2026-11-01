@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Share Local Sweat</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{--ink:#23272b;--body:#3f454b;--muted:#667382;--rust:#a0451d;--sand:#f1f0ec;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--body);-webkit-text-size-adjust:100%}
+  .wrap{max-width:520px;margin:0 auto;padding:24px 16px 40px}
+  .logo{display:block;width:180px;margin:4px auto 20px}
+  .card{background:#fff;border-radius:14px;padding:26px 22px}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--rust);margin-bottom:8px}
+  h1{margin:0 0 10px;font-size:26px;line-height:32px;color:var(--ink)}
+  p{margin:0 0 18px;font-size:16px;line-height:25px}
+  textarea{width:100%;min-height:330px;padding:14px;border:1px solid #d7dbdd;border-radius:10px;background:var(--sand);font:15px/23px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);resize:vertical}
+  .btn{display:block;width:100%;margin-top:12px;padding:17px 20px;border:0;border-radius:8px;font:bold 17px/22px 'Helvetica Neue',Helvetica,Arial,sans-serif;text-align:center;text-decoration:none;cursor:pointer}
+  .primary{background:var(--rust);color:#fff}
+  .secondary{background:var(--ink);color:#fff}
+  .ghost{background:#fff;color:var(--ink);border:1px solid #c1c4c6}
+  .note{margin:14px 0 0;font-size:13px;line-height:19px;color:var(--muted);text-align:center}
+  .done{color:#2f7a3d}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="/"><img class="logo" src="/email/logo-light.png" alt="Local Sweat Sauna House"></a>
+  <div class="card">
+    <div class="eyebrow">Share Local Sweat</div>
+    <h1>Tell a friend</h1>
+    <p>Here&rsquo;s a message you can send as is, or tweak it first.</p>
+    <textarea id="msg" aria-label="Message to share">Hey! Hope your day is starting off strong.
+
+Have you heard about Local Sweat? Two K-State grads have a vision for a local, Finnish-style community sauna here in Manhattan. They're building it around community, wellness, and pricing that works for the long term.
+
+They're bootstrapping, so they're building it backward: they'll only build once 450 people have joined the Local Sweat early founding member list.
+
+Sending because this sounds right up your alley. Here's the website (one of the founders built it entirely on her own): https://localsweatsaunahouse.com/#join
+
+If you join, and you feel like it, you can put my name in the "Friend who referred you" box!
+
+Early founding members get months 11 and 12 free, and if you refer three people, month 10 is free too.
+
+Take care!</textarea>
+    <button class="btn primary" id="share" type="button">Share&nbsp;&rarr;</button>
+    <a class="btn secondary" id="sms" href="#">Text it</a>
+    <button class="btn ghost" id="copy" type="button">Copy message</button>
+    <p class="note" id="status">&ldquo;Share&rdquo; opens your phone&rsquo;s share menu: Messages, WhatsApp, email, and more.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var msg=document.getElementById('msg'), status=document.getElementById('status');
+  var shareBtn=document.getElementById('share'), sms=document.getElementById('sms');
+  function text(){return msg.value;}
+  function setStatus(t,ok){status.textContent=t;status.className='note'+(ok?' done':'');}
+  if(!navigator.share){shareBtn.style.display='none';setStatus('Tap “Text it,” or copy the message and paste it anywhere.');}
+  shareBtn.addEventListener('click',function(){
+    navigator.share({text:text()}).catch(function(){});
+  });
+  sms.addEventListener('click',function(e){
+    e.preventDefault();
+    var ios=/iPhone|iPad|iPod/.test(navigator.userAgent);
+    window.location.href='sms:'+(ios?'&':'?')+'body='+encodeURIComponent(text());
+  });
+  document.getElementById('copy').addEventListener('click',function(){
+    var t=text();
+    function fallback(){msg.focus();msg.select();try{document.execCommand('copy');setStatus('Copied! Paste it into a text or message.',true);}catch(e){setStatus('Select the message above and copy it.');}}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){setStatus('Copied! Paste it into a text or message.',true);},fallback);}else{fallback();}
+  });
+})();
+</script>
+</body>
+</html>
